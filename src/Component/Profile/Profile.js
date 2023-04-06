@@ -9,19 +9,18 @@ const Profile = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/users?email=${user?.email}`)
             .then(res => res.json())
-            .then(data => {
-                setProfileUser(data)
-            })
+            .then(data => {setProfileUser(data)})
     }, [user?.email])
+   
 
     return (
-        <div className="card w-96 bg-indigo-950 shadow-xl">
+        <div className="card w-96  shadow-xl">
             <div className="avatar mx-2">
                 <div className="w-24 rounded-full mx-2">
                     <img src={profileUser?.image} />
                 </div>
             </div>
-            <div className="card-body  ">
+            <div className="card-body">
                 <h2 className="card-title">Name : {profileUser?.name}</h2>
                 <p>Email : {profileUser?.email}</p>
             </div>

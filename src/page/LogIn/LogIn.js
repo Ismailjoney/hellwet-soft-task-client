@@ -79,7 +79,7 @@ const LogIn = () => {
                         </div>
                         <label className="label"> <span className="label-text">Forget password</span></label>
                     </div>
-                    <input className='btn btn-primary w-full' value="Login" type="submit" />
+                    <input className='btn  btn-outline  w-full' value="Login" type="submit" />
 
                 </form>
 

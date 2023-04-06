@@ -7,14 +7,14 @@ import { toast } from 'react-hot-toast';
 const Reg = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [singupError, setSingUpError] = useState('')
-    const { user, createUser, updateUser } = useContext(AuthContext)
+    const {  createUser, updateUser } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const imageKey = process.env.REACT_APP_imagebb;
     
  
     const handdleSingIn = data => {
-        // setSingUpError('')
+        setSingUpError('')
         const image = data.image[0]
         const formData = new FormData();
 
@@ -52,7 +52,6 @@ const Reg = () => {
     //save user info in database
     const saveUserAccountInfo = (name, email,image) => {
             const user = { name, email, image }
-            console.log(user)
             fetch(`http://localhost:5000/users`, {
                 method: 'POST',
                 headers: {
@@ -81,7 +80,7 @@ const Reg = () => {
                             </label>
                             <input
                                 {...register('image', { required: true })}
-                                type="file" className="file-input w-full max-w-xs  " />
+                                type="file" className="file-input w-full max-w-xs  " required />
                             {errors.image && <span className='mx-2'>This field is required</span>}
                             <p className='text-sm my-1'>Please Upload 1:1 aspect Ratio Image</p>
                         </div>
@@ -131,7 +130,7 @@ const Reg = () => {
                                 singupError && <p className='text-red-600'>{singupError}</p>
                             }
                         </div>
-                        <input className='btn btn-accent w-full mt-4' value="Login" type="submit" />
+                        <input className='btn  btn-outline  w-full mt-4' value="Login" type="submit" />
                     </form>
 
                     <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
