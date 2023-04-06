@@ -13,7 +13,7 @@ const MyTask = () => {
     const { data: myTasks = [], isLoading, refetch } = useQuery({
         queryKey: ['usersData', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/usersData?email=${user?.email}`)
+            const res = await fetch(`https://hellwet-soft-task-server-five.vercel.app/usersData?email=${user?.email}`)
             const data = await res.json()
             return data;
         }
@@ -22,7 +22,7 @@ const MyTask = () => {
 
     const handdleDelete = id => {
         console.log(id)
-        fetch(`http://localhost:5000/usersdata/${id}`, {
+        fetch(`https://hellwet-soft-task-server-five.vercel.app/usersdata/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

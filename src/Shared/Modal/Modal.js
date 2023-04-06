@@ -17,7 +17,7 @@ const Modal = ({ myUpdateTasks, setMyUpdateTasks,  refetch }) => {
         }
         console.log(updateDoc)
 
-        fetch(`http://localhost:5000/usersdata/${myUpdateTasks}`, {
+        fetch(`https://hellwet-soft-task-server-five.vercel.app/usersdata/${myUpdateTasks}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

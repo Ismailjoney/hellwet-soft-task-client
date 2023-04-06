@@ -7,7 +7,7 @@ const Profile = () => {
    
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users?email=${user?.email}`)
+        fetch(`https://hellwet-soft-task-server-five.vercel.app/users?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {setProfileUser(data)})
     }, [user?.email])

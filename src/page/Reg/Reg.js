@@ -52,7 +52,7 @@ const Reg = () => {
     //save user info in database
     const saveUserAccountInfo = (name, email,image) => {
             const user = { name, email, image }
-            fetch(`http://localhost:5000/users`, {
+            fetch(`https://hellwet-soft-task-server-five.vercel.app/users`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

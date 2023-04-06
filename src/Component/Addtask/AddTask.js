@@ -11,7 +11,7 @@ const AddTask = () => {
     const date = format(data, 'PP')
 
     useEffect(() =>{
-        fetch(`http://localhost:5000/users?email=${user?.email}`)
+        fetch(`https://hellwet-soft-task-server-five.vercel.app/users?email=${user?.email}`)
         .then(res => res.json())
         .then(data =>  setUserInfo(data))
     },[user?.email])
@@ -35,7 +35,7 @@ const AddTask = () => {
         }
  
 
-        fetch('http://localhost:5000/usersdata', {
+        fetch('https://hellwet-soft-task-server-five.vercel.app/usersdata', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import AllTaskDetails from './AllTaskDetails';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '../../Shared/Loading/Loading';
 
 const AllTask = () => {
-    const[allTaskData, setAllTaskData] = useState()
+    const { data: allTaskData = [], isLoading, refetch } = useQuery({
+        queryKey: ['usersData'],
+        queryFn: async () => {
+            const res = await fetch(`https://hellwet-soft-task-server-five.vercel.app/usersData`)
+            const data = await res.json()
+            return data;
+        }
+    })
 
-    useEffect(() =>{
-        fetch('http://localhost:5000/usersData')
-        .then(res => res.json())
-        .then(data => setAllTaskData(data))
-    },[])
+    if(isLoading){
+         return <Loading></Loading>
+    }
  
-
-
     return (
         <div className='mx-4'>
             <h2 className="text-3xl font-bold">All Task</h2>
